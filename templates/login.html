@@ -2,13 +2,49 @@
 <html>
 <head>
     <title>Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            margin-top: 10%;
+        }
+        form {
+            background: rgba(0,0,0,0.6);
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Your Movie Spot</h1>
-    <form>
-        <input type="text" placeholder="Username" /><br>
-        <input type="password" placeholder="Password" /><br>
-        <button type="submit">Login</button>
-    </form>
+    <!-- Replace 'movie.mp4' with your actual video file path or URL -->
+    <video autoplay muted loop class="bg-video">
+        <source src="{{ url_for('static', filename='wall.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content">
+        <h1>Welcome to Your Movie Spot</h1>
+        <form>
+            <input type="text" placeholder="Username" /><br>
+            <input type="password" placeholder="Password" /><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
